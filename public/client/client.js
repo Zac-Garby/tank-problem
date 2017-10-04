@@ -52,6 +52,24 @@
                     socket.emit("input", id, false)
                 })
             }
+
+            let keys = {
+                90: "A",
+                88: "B",
+
+                38: "up",
+                40: "down",
+                37: "left",
+                39: "right",
+            }
+
+            window.addEventListener("keydown", evt => {
+                socket.emit("input", keys[evt.keyCode], true)
+            })
+
+            window.addEventListener("keydown", evt => {
+                socket.emit("input", keys[evt.keyCode], false)
+            })
         }
     })
 })()
