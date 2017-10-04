@@ -1,0 +1,162 @@
+div.controller * {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+div.controller {
+    position: relative;
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    font-weight: bold;
+}
+
+div.button {
+    box-sizing: content-box;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 200px;
+    color: white;
+    font-size: 100px;
+    cursor: pointer;
+}
+
+div.button:last-child {
+    margin-bottom: 0;
+}
+
+div.button.red {
+    margin-left: 90px;
+    background-color: #d43838;
+    border-bottom: 10px solid #771717;
+}
+
+div.button.red:hover {
+    background-color: #B43030;
+}
+
+div.button.green {
+    background-color: #28A028;
+    border-bottom: 10px solid #185814;
+}
+
+div.button.green:hover {
+    background-color: #238D23;
+}
+
+div.button:active, div.button.active {
+    border-bottom: none;
+    transform: translateY(10px);
+    margin-bottom: 60px;
+}
+
+div.buttons {
+    width: 390px;
+    height: 550px;
+    padding: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+div.d-pad {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    margin-right: 50px;
+}
+
+div.direction {
+    position: absolute;
+    background-color: #afafaf;
+    border-radius: 5px;
+    cursor: pointer;
+    border-bottom: 10px solid #5C5C5C;
+}
+
+div.direction:hover {
+    background-color: #a1a1a1;
+}
+
+div.direction:active, div.direction.active {
+    transform: translateY(10px);
+    border-bottom: none;  
+    height: 100px;    
+}
+
+div.down:active, div.down.active {
+    transform: translateY(0px);
+}
+
+div.left:active, div.right:active, div.left.active, div.right.active {
+    transform: translateY(5px);
+}
+
+div.up, div.down {
+    width: 90px;
+    height: 110px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+div.left, div.right {
+    width: 110px;
+    height: 90px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+div.left:active, div.right:active, div.left.active, div.right.active {
+    height: 80px;
+}
+
+div.down {
+    bottom: 0;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+}
+
+div.right {
+    right: 0;
+    border-top-right-radius: 40%;
+    border-bottom-right-radius: 40%;
+}
+
+div.up {
+    border-top-left-radius: 40%;
+    border-top-right-radius: 40%;
+}
+
+div.left {
+    border-top-left-radius: 40%;
+    border-bottom-left-radius: 40%;
+}
+
+div.middle {
+    position: absolute;
+    background-color: #8b8b8b;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}

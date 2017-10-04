@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tank Problem</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+        <script src="/socket.io/socket.io.js"></script>
+
+        <link rel="stylesheet" href="../styles/global.css">
+        <link rel="stylesheet" href="styles/controller.css">
+        <link rel="stylesheet" href="styles/client.css">
+    </head>
+    <body>
+        <a id="back">Go back</a>
+
+        <div class="controller">
+            <div class="buttons">
+                <div class="red button" id="A">A</div>
+    
+                <div class="green button" id="B">B</div>
+            </div>
+
+            <div class="d-pad">
+                <div class="direction up" id="up"></div>
+                <div class="direction down" id="down"></div>
+                <div class="direction left" id="left"></div>
+                <div class="direction right" id="right"></div>
+
+                <div class="middle"></div>
+            </div>
+        </div>
+
+        <script src="client.js"></script>
+        <script src="keybindings.js"></script>        
+    </body>
+</html>
