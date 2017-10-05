@@ -21,7 +21,7 @@ Physics(world => {
     }))
 
     world.add(Physics.integrator("verlet", {
-        drag: 0.7
+        drag: 0.2
     }))
 
     world.add(Physics.behavior("body-impulse-response"))
@@ -43,9 +43,36 @@ Physics(world => {
         world.render()
     })
 
+    let input = {} 
+
     Physics.util.ticker.on((time, dt) => {
+        if (input.ArrowUp) {
+            forward = {
+                x: Math.cos(square.state.angular.pos) * 2,
+                y: Math.sin(square.state.angular.pos) * 2,
+            }
+
+            square.applyForce(forward)
+        }
+
+        if (input.ArrowRight) {
+            square.state.angular.vel = 0.005
+        } else if (input.ArrowLeft) {
+            square.state.angular.vel = -0.005
+        } else {
+            square.state.angular.vel = 0
+        }
+
         world.step(time)
     })
 
     Physics.util.ticker.start()
+
+    window.addEventListener("keydown", evt => {
+        input[evt.key] = true
+    })
+
+    window.addEventListener("keyup", evt => {
+        delete input[evt.key]
+    })
 })
