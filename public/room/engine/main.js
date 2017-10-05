@@ -21,7 +21,7 @@ Physics(world => {
     }))
 
     world.add(Physics.integrator("verlet", {
-        drag: 0.2
+        drag: 0.7
     }))
 
     world.add(Physics.behavior("body-impulse-response"))
