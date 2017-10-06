@@ -67,7 +67,7 @@
                 socket.emit("input", keys[evt.keyCode], true)
             })
 
-            window.addEventListener("keydown", evt => {
+            window.addEventListener("keyup", evt => {
                 socket.emit("input", keys[evt.keyCode], false)
             })
         }
