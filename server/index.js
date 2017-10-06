@@ -63,8 +63,10 @@ io.on("connection", socket => {
     })
 
     socket.on("input", (type, up) => {
+        if (!clients[socket.client.id] || !type) return
+
         let room = clients[socket.client.id].room
-        io.to(rooms[room]).emit("input", type, up)
+        io.to(rooms[room]).emit("input", socket.client.id, type, up)
     })
 
     socket.on("new room", name => {
