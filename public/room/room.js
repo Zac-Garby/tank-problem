@@ -29,9 +29,7 @@
 
             socket.emit("new room", room)
 
-            socket.on("input", (type, up) => {
-                console.log(type, up)
-            })
+            game(socket)
         }
     })
 })()
