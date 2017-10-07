@@ -51,11 +51,18 @@ require([
                 li.innerHTML = info.name
                 li.id = id
 
+                li.onclick = () => {
+                    socket.emit("kick", id)
+                }
+
                 playerList.appendChild(li)
             })
 
             socket.on("left", id => {
-                playerList.removeChild(document.querySelector(`li#${id}`))
+                let li = document.getElementById(id)
+                if (!li) return
+
+                playerList.removeChild(li)
             })
 
             socket.emit("new room", room)
