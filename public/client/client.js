@@ -31,6 +31,26 @@
                 room: room,
             })
 
+            socket.on("kicked", () => {
+                let wrapper = document.createElement("div")
+                wrapper.className = "wrapper"
+    
+                let h1 = document.createElement("h1")
+                h1.innerHTML = `You've been kicked!`
+    
+                let h2 = document.createElement("h2")
+                h2.innerHTML = `Click <a href=${url.origin}>here</a> to return to the main page`
+    
+                wrapper.appendChild(h1)
+                wrapper.appendChild(h2)
+
+                for (let elem of document.body.children) {
+                    document.body.removeChild(elem)
+                }
+                
+                document.body.appendChild(wrapper)
+            })
+
             let buttons = [
                 "A",
                 "B",

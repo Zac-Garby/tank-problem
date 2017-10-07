@@ -82,6 +82,7 @@ io.on("connection", socket => {
     })
 
     socket.on("kick", id => {
+        sockets[id].emit("kicked")
         sockets[id].disconnect()
     })
 })
