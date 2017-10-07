@@ -6,7 +6,10 @@ require.config({
             location: "lib/physicsjs",
             main: "physicsjs.min.js"
         }
-    ]
+    ],
+    paths: {
+        "pixi": "lib/pixi"
+    }
 })
 
 require([

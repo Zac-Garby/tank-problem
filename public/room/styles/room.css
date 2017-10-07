@@ -22,7 +22,7 @@ h1#room-name {
     font-size: 5em;
 }
 
-canvas#game {
+canvas {
     position: absolute;
     margin: auto;
     left: 0;
@@ -31,4 +31,6 @@ canvas#game {
     bottom: 0;
     background-color: white;
     border: 1px solid #e0e0e0;
+    width: 1200px;
+    height: 800px;
 }

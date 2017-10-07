@@ -2,15 +2,16 @@ define([
     "require",
 
     "physicsjs",
+    "pixi",
 
-    "physicsjs/renderers/canvas",
+    "physicsjs/renderers/pixi-renderer",
     "physicsjs/bodies/rectangle",
     "physicsjs/behaviors/sweep-prune",
     "physicsjs/behaviors/body-collision-detection",
     "physicsjs/behaviors/body-impulse-response",
     "physicsjs/behaviors/edge-collision-detection",
     "engine/tank-controls"
-], (require, Physics) => {
+], (require, Physics, PIXI) => {
     return (socket) => Physics(world => {
         Physics.util.ticker.on(time => {
             world.step(time)
@@ -35,11 +36,11 @@ define([
             })
         ])
 
-        let renderer = Physics.renderer("canvas", {
-            el: "game",
+        let renderer = Physics.renderer("pixi", {
+            // el: "game",
             width: 1200,
             height: 800,
-            meta: false,
+            // meta: false,
             autoResize: false
         })
 
