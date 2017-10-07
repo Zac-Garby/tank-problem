@@ -33,9 +33,9 @@ define([
                 let speed = 0
                 
                 if (this.input["up"]) {
-                    speed = 0.015
+                    speed = 0.003
                 } else if (this.input["down"]) {
-                    speed = -0.015
+                    speed = -0.003
                 }
 
                 if (this.input["left"]) {

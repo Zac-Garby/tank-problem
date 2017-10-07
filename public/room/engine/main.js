@@ -33,7 +33,7 @@ define([
             Physics.behavior("body-collision-detection"),
             Physics.behavior("sweep-prune"),
             Physics.integrator("verlet", {
-                drag: 0.5
+                drag: 0.1
             })
         ])
 
@@ -47,8 +47,8 @@ define([
             let body = Physics.body("rectangle", {
                 x: 200,
                 y: 200,
-                width: 50,
-                height: 40
+                width: 40,
+                height: 32
             })
 
             let controls = Physics.behavior("tank-controls", {
