@@ -31,16 +31,15 @@ define([
             }),
             Physics.behavior("body-impulse-response"),
             Physics.behavior("body-collision-detection"),
+            Physics.behavior("sweep-prune"),
             Physics.integrator("verlet", {
                 drag: 0.5
             })
         ])
 
         let renderer = Physics.renderer("pixi", {
-            // el: "game",
             width: 1200,
             height: 800,
-            // meta: false,
             autoResize: false
         })
 
