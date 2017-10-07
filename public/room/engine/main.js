@@ -32,9 +32,7 @@ define([
             Physics.behavior("body-impulse-response"),
             Physics.behavior("body-collision-detection"),
             Physics.behavior("sweep-prune"),
-            Physics.integrator("verlet", {
-                drag: 0.1
-            })
+            Physics.integrator("verlet")
         ])
 
         let renderer = Physics.renderer("pixi", {
