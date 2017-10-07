@@ -1,6 +1,20 @@
-(() => {
-    "use strict";
+require.config({
+    baseUrl: "./",
+    packages: [
+        {
+            name: "physicsjs",
+            location: "lib/physicsjs",
+            main: "physicsjs.min.js"
+        }
+    ]
+})
 
+require([
+    "/socket.io/socket.io.js",
+    "engine/main.js"
+], (io, engine) => {
+    "use strict";
+    
     const url = new URL(location.href)
     let room = url.searchParams.get("room")
 
@@ -15,7 +29,7 @@
             wrapper.className = "wrapper"
 
             let h1 = document.createElement("h1")
-            h1.innerHTML = `The room '${room}' doesn't exist`
+            h1.innerHTML = `The room '${room}' already exists`
 
             let h2 = document.createElement("h2")
             h2.innerHTML = `Click <a href=${url.origin}>here</a> to return to the main page`
@@ -29,7 +43,7 @@
 
             socket.emit("new room", room)
 
-            game(socket)
+            engine(socket)
         }
     })
-})()
+})

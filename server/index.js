@@ -44,7 +44,7 @@ io.on("connection", socket => {
         info = i
         clients[socket.client.id] = info
 
-        io.to(rooms[info.room]).emit("joined", info)
+        io.to(rooms[info.room]).emit("joined", socket.client.id, info)
     })
 
     socket.on("disconnect", () => {
