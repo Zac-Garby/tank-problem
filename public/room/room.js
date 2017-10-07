@@ -29,7 +29,7 @@ require([
     socket.emit("room exists?", room, exists => {
         if (exists) {
             let wrapper = document.createElement("div")
-            wrapper.className = "wrapper"
+            wrapper.className = "fade wrapper"
 
             let h1 = document.createElement("h1")
             h1.innerHTML = `The room '${room}' already exists`
@@ -43,6 +43,20 @@ require([
             document.body.appendChild(wrapper)
         } else {
             document.getElementById("room-name").innerHTML = room
+
+            let playerList = document.getElementById("users")
+
+            socket.on("joined", (id, info) => {
+                let li = document.createElement("li")
+                li.innerHTML = info.name
+                li.id = id
+
+                playerList.appendChild(li)
+            })
+
+            socket.on("left", id => {
+                playerList.removeChild(document.querySelector(`li#${id}`))
+            })
 
             socket.emit("new room", room)
 

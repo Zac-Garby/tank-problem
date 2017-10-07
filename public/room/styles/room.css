@@ -12,6 +12,29 @@ a#back {
 }
 
 div.wrapper {
+    width: 1500px;
+    height: 800px;
+}
+
+div.wrapper ul {
+    width: 300px;
+    height: 800px;
+    float: right;
+    list-style: none;
+    font-size: 16pt;
+}
+
+div.wrapper li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+div.wrapper li:hover {
+    text-decoration: line-through;
+    color: rgb(192, 40, 40);
+}
+
+div.wrapper.fade {
     background-color: rgba(255, 255, 255, 0.85);
     width: 100vw;
     height: 100vh;
@@ -23,12 +46,6 @@ h1#room-name {
 }
 
 canvas {
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
     background-color: white;
     border: 1px solid #e0e0e0;
     width: 1200px;

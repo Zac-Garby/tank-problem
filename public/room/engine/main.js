@@ -38,6 +38,7 @@ define([
         ])
 
         let renderer = Physics.renderer("pixi", {
+            el: "wrapper",
             width: 1200,
             height: 800,
             autoResize: false
