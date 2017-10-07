@@ -31,6 +31,9 @@ let rooms = {}
 // id: {name, room name}
 let clients = {}
 
+// id: socket
+let sockets = {}
+
 // The server essentially routes the controllers' inputs
 // to the room owners.
 io.on("connection", socket => {
@@ -43,8 +46,9 @@ io.on("connection", socket => {
         isPlayer = true
         info = i
         clients[socket.client.id] = info
+        sockets[socket.client.id] = socket
 
-        io.to(rooms[info.room]).emit("joined", info)
+        io.to(rooms[info.room]).emit("joined", socket.client.id, info)
     })
 
     socket.on("disconnect", () => {
@@ -53,6 +57,7 @@ io.on("connection", socket => {
             console.log(`Room destroyed: ${room}`);
         } else {
             delete clients[socket.client.id]
+            delete sockets[socket.client.id]
             io.to(rooms[info.room]).emit("left", socket.client.id)
             console.log(`Client left: ${info.name}`)
         }
@@ -63,8 +68,10 @@ io.on("connection", socket => {
     })
 
     socket.on("input", (type, up) => {
+        if (!clients[socket.client.id] || !type) return
+
         let room = clients[socket.client.id].room
-        io.to(rooms[room]).emit("input", type, up)
+        io.to(rooms[room]).emit("input", socket.client.id, type, up)
     })
 
     socket.on("new room", name => {
@@ -72,5 +79,10 @@ io.on("connection", socket => {
 
         room = name
         rooms[name] = socket.client.id
+    })
+
+    socket.on("kick", id => {
+        sockets[id].emit("kicked")
+        sockets[id].disconnect()
     })
 })
